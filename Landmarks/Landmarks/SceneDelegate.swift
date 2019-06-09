@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // Use a UIHostingController as window root view controller
     let window = UIWindow(frame: UIScreen.main.bounds)
-    window.rootViewController = UIHostingController(rootView: LandmarkDetail())
+    let landmarkStore = LandmarkStore()
+    landmarkStore.loadData()
+    window.rootViewController = UIHostingController(rootView: LandmarkList(landmarks: landmarkStore.landmarkData))
     self.window = window
     window.makeKeyAndVisible()
   }
