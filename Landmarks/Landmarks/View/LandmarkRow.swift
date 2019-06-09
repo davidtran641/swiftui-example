@@ -14,6 +14,13 @@ struct LandmarkRow: View {
     HStack {
       ImageStore.shared.image(name: landmark.imageName, size: 50)
       Text(landmark.name)
+      Spacer()
+
+      if landmark.isFavorite {
+        Image(systemName: "star.fill")
+          .imageScale(.medium)
+          .foregroundColor(.yellow)
+      }
     }
   }
 }
